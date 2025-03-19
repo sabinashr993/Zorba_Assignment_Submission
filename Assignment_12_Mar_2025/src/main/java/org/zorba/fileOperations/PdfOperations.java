@@ -31,7 +31,6 @@ public class PdfOperations {
             String useDatabase = "USE zorba_assignment";
             statement.executeUpdate(useDatabase);
 
-            //select all from employee table and department name from department table
             String selectSubQuery = "SELECT e.emp_id, e.emp_name, e.emp_address, e.emp_mobile, e.emp_doj, e.emp_salary, d.dept_name FROM employee e INNER JOIN department d ON e.dept_id = d.dept_id";
             resultSetWithSubQuery = statement.executeQuery(selectSubQuery);
         } catch (Exception e) {
