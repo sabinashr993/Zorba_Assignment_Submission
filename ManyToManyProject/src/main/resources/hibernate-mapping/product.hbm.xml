@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.zorba.xmlOperation.entity.Product" table="Product">
+        <id name="productId" column="product_id" length="3">
+            <generator class="increment"/>
+        </id>
+        <property name="productName" column="product_name" length="255"/>
+        <property name="productDescription" column="product_description"/>
+        <property name="productQuantity" column="product_quantity"/>
+
+        <!--Many To Many Relationship-->
+        <set name="consumers" table="consumer_product_mapping" cascade="all" lazy="true">
+            <key>
+                <column name="product_id" not-null="true"/>
+            </key>
+            <many-to-many entity-name="org.zorba.xmlOperation.entity.Consumer">
+                <column name="consumer_id" not-null="true"/>
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
