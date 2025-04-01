@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.zorba.xmlOperation.entity.User" table="user">
+        <id name="userId" column="user_id" length="255">
+            <generator class="increment"/>
+        </id>
+        <property name="userName" column="user_name" length="255"/>
+        <property name="userAddress" column="user_address" length="255"/>
+        <set name="accountSet" table="email_account" cascade="all">
+            <key column="user_id"/>
+            <one-to-many class="org.zorba.xmlOperation.entity.EmailAccount"/>
+        </set>
+    </class>
+</hibernate-mapping>
