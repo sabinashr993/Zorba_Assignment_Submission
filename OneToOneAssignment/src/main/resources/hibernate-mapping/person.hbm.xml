@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="org.zorba.xmlOperation.entity.Person" table="person">
+        <id name="personId" column="person_id">
+            <generator class="increment"/>
+        </id>
+        <property name="personName" column="person_name"/>
+        <property name="personDob" column="person_dob"/>
+        <property name="socialSecurity" column="social_security"/>
+
+        <one-to-one name="driverLicense" class="org.zorba.xmlOperation.entity.DriverLicense" cascade="all"/>
+    </class>
+</hibernate-mapping>

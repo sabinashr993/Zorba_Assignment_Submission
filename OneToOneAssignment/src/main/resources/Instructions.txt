@@ -1,0 +1,8 @@
+Assignment on One To One:
+-------------------------
+Person (person_id, person_name, person_dob, social_security)
+Driving License (lisence_id, license_issue_country, license_issue_date, license_expiry_date)
+
+One Person Can have only one Driving license
+Date of Issue should be 18 years more from the person dob
+Expiry date should be 5 years 6 months and 25 days more from the date of issue.
