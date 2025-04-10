@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--JDBC Connection pool size-->
+        <property name="connection.pool_size">5</property>
+
+        <!-- Providing the driver of database  -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+
+        <!--Providing jdbc url-->
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/transportation_systems</property>
+
+        <!--Providing jdbc userName-->
+        <property name="hibernate.connection.username">root</property>
+
+        <!--Providing jdbc password-->
+        <property name="hibernate.connection.password">Password</property>
+
+        <!--Helps to convert from java object to SQL query-->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!--Property that helps to write the sql query after conversion using dialect-->
+        <property name="show_sql">true</property>
+
+        <!--Which indicates, when starting of server / execution we are instructing hibernate that it need to create all the entity (Table)-->
+        <!--
+            1. CREATE - it will drop all the table and re-create in each execution
+            2. UPDATE - Once table created will never drop it, but if the table doesn't exist, it will create a new table
+            3. VALIDATE - it is not going to drop any tables, rather keep validating if any changes happens in the entity or table.
+        -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!--Set the Current session Context-->
+        <property name="current_session_context_class">thread</property>
+
+        <!--Configure all the mapping files that hibernate can recognize all the entity-->
+    </session-factory>
+</hibernate-configuration>
